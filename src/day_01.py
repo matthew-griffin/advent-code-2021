@@ -1,5 +1,7 @@
 from collections import deque
 
+from src.timer import Timer
+
 
 def countWindowedIncreases(input_file, window_size):
     increases = 0
@@ -17,7 +19,9 @@ def countWindowedIncreases(input_file, window_size):
 
 
 if __name__ == '__main__':
-    basic = countWindowedIncreases("../input/day_01.txt", 1)
+    with Timer("Part 1"):
+        basic = countWindowedIncreases("../input/day_01.txt", 1)
     print(f"Increases: {basic}")
-    windowed = countWindowedIncreases("../input/day_01.txt", 3)
+    with Timer("Part 2"):
+        windowed = countWindowedIncreases("../input/day_01.txt", 3)
     print(f"Windowed Increases: {windowed}")

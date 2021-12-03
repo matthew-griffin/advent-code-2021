@@ -1,5 +1,7 @@
 from functools import partial
 
+from src.timer import Timer
+
 
 def incrementList(input_list, index, sign, value):
     input_list[index] += value if sign else -value
@@ -41,7 +43,9 @@ def calcCourseProduct(input_file):
 
 
 if __name__ == '__main__':
-    position_product = calcPositionProduct("../input/day_02.txt")
+    with Timer("Part 1"):
+        position_product = calcPositionProduct("../input/day_02.txt")
     print(f"Position Product: {position_product}")
-    course_product = calcCourseProduct("../input/day_02.txt")
+    with Timer("Part 2"):
+        course_product = calcCourseProduct("../input/day_02.txt")
     print(f"Course Product: {course_product}")
