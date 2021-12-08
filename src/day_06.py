@@ -34,6 +34,8 @@ if __name__ == '__main__':
     with Timer("Part 1"):
         part1_result = calcNumFish("../input/day_06.txt", 80)
     print(f"Part 1 Result: {part1_result}")
+    print(str(recursiveCalcNumFish.cache_info()))
     with Timer("Part 2"):
         part2_result = calcNumFish("../input/day_06.txt", 256)
     print(f"Part 2 Result: {part2_result}")
+    print(str(recursiveCalcNumFish.cache_info()))
