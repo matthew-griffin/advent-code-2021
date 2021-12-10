@@ -81,6 +81,5 @@ if __name__ == '__main__':
         part1_result = countUniqueOutputs("../input/day_08.txt")
     print(f"Part 1 Result: {part1_result}")
     with Timer("Part 2"):
-        pass
         part2_result = sumDecodedOutput("../input/day_08.txt")
     print(f"Part 2 Result: {part2_result}")
