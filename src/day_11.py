@@ -17,7 +17,7 @@ def populateGrid(input_file):
     with open(input_file) as file:
         for line in file:
             grid.append([int(value) for value in line.strip()])
-    return grid
+    return grid, len(grid[0]), len(grid)
 
 
 def recCountFlashes(grid, flashed, x, y):
@@ -35,9 +35,7 @@ def recCountFlashes(grid, flashed, x, y):
     return flash_count
 
 
-def countFlashesSingleStep(grid):
-    height = len(grid)
-    width = len(grid[0])
+def countFlashesSingleStep(grid, width, height):
     flash_count = 0
     flashed = []
     for y in range(height):
@@ -57,21 +55,21 @@ def countFlashesSingleStep(grid):
 
 
 def countFlashes(input_file):
-    grid = populateGrid(input_file)
+    grid, width, height = populateGrid(input_file)
 
     flash_count = 0
     for step in range(100):
-        flash_count += countFlashesSingleStep(grid)
+        flash_count += countFlashesSingleStep(grid, width, height)
 
     return flash_count
 
 
 def findFirstFullFlash(input_file):
-    grid = populateGrid(input_file)
-    grid_size = len(grid) * len(grid[0])
+    grid, width, height = populateGrid(input_file)
+    grid_size = width * height
 
     steps = 1
-    while countFlashesSingleStep(grid) != grid_size:
+    while countFlashesSingleStep(grid, width, height) != grid_size:
         steps += 1
 
     return steps
